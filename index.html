@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f8f6f1" />
+    <title>One Day at a Time</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="#top" aria-label="One Day at a Time home">
+          <span class="brand-mark">·</span>
+          <span>one day <em>at a time</em></span>
+        </a>
+        <div class="date-wrap">
+          <span class="today-label">TODAY</span>
+          <input id="date" class="date-input" type="date" aria-label="Planning date" />
+        </div>
+      </header>
+
+      <section class="hero" id="top">
+        <p class="eyebrow">ACTION FIRST · START WHERE YOU ARE</p>
+        <h1>You don’t need to<br /><em>figure it all out.</em></h1>
+        <p class="hero-copy">Just make today meaningful. One clear step, then the next.</p>
+      </section>
+
+      <section class="daily-intention card" aria-labelledby="intention-heading">
+        <div class="section-heading">
+          <div>
+            <p class="section-number">01 / SET THE TONE</p>
+            <h2 id="intention-heading">Imagine your day</h2>
+          </div>
+          <span class="soft-sun" aria-hidden="true">☼</span>
+        </div>
+        <label class="sr-only" for="intention">A small description of how you want your day to feel</label>
+        <textarea id="intention" maxlength="300" placeholder="A grounded, unhurried day. I move the important thing forward before the noise gets in..." rows="3"></textarea>
+        <div class="input-foot"><span id="intention-count">0 / 300</span><span>How do you want it to feel?</span></div>
+      </section>
+
+      <section class="split-section">
+        <div class="non-negotiables card">
+          <div class="section-heading compact">
+            <div>
+              <p class="section-number">02 / KEEP IT REAL</p>
+              <h2>Non-negotiables</h2>
+            </div>
+            <span class="mini-note">3 is enough</span>
+          </div>
+          <p class="helper">The few things that will make today count.</p>
+          <div id="task-list" class="task-list" aria-label="Non-negotiable tasks"></div>
+          <button class="text-button" id="add-task" type="button"><span>+</span> Add one more</button>
+        </div>
+
+        <aside class="note-card">
+          <span class="quote-mark">“</span>
+          <p>Fix what’s within your reach. One step at a time, one day at a time.</p>
+          <span class="attribution">— Mom’s wisdom</span>
+        </aside>
+      </section>
+
+      <section class="timeline-section" aria-labelledby="timeline-heading">
+        <div class="timeline-title-row">
+          <div>
+            <p class="section-number">03 / MAKE SPACE</p>
+            <h2 id="timeline-heading">A meaningful rhythm</h2>
+          </div>
+          <button class="reset-button" id="reset-day" type="button">Start fresh</button>
+        </div>
+        <p class="helper timeline-helper">A light outline, not a rigid schedule. Leave room to be human.</p>
+        <div id="timeline" class="timeline" aria-label="Day timeline"></div>
+        <button class="add-block" id="add-block" type="button">+ Add a time block</button>
+      </section>
+
+      <section class="closing">
+        <div class="line"></div>
+        <p>When in doubt, <strong>begin.</strong></p>
+        <div class="line"></div>
+      </section>
+    </main>
+
+    <template id="task-template">
+      <div class="task-row">
+        <button class="check" type="button" aria-label="Mark task complete"><span>✓</span></button>
+        <input class="task-input" type="text" maxlength="100" placeholder="Name the one thing" aria-label="Non-negotiable task" />
+        <button class="remove" type="button" aria-label="Remove task">×</button>
+      </div>
+    </template>
+
+    <template id="block-template">
+      <article class="time-block">
+        <div class="time-marker"><input class="time-input" type="text" maxlength="12" aria-label="Time" /></div>
+        <div class="block-line"><span></span></div>
+        <div class="block-content">
+          <input class="block-title" type="text" maxlength="80" placeholder="What needs your attention?" aria-label="Activity title" />
+          <input class="block-detail" type="text" maxlength="120" placeholder="A gentle note to yourself (optional)" aria-label="Activity details" />
+        </div>
+        <button class="block-remove" type="button" aria-label="Remove time block">×</button>
+      </article>
+    </template>
+    <script src="app.js"></script>
+  </body>
+</html>
