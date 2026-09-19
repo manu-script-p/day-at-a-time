@@ -8,4 +8,4 @@ Start with how you want your day to feel, choose the few things that matter, and
 
 Your plan is saved only in the browser and device you are using. It is not sent to a server, visible to other visitors, or connected to an account.
 
-If you use a shared computer or browser profile, use **Start fresh** when you finish. Clearing this website’s browser data will also remove your saved plan.
+If you use a shared computer or browser profile, use **Start Fresh** when you finish. Clearing this website’s browser data will also remove your saved plan.
