@@ -5,14 +5,23 @@ const initialBlocks = [
   { time: '02:00 PM', title: 'Lighter tasks', detail: 'Messages, admin, small wins' },
   { time: '06:00 PM', title: 'Close the loop', detail: 'Celebrate progress. Let tomorrow wait.' }
 ];
-const storageKey = 'one-day-at-a-time';
+// This versioned key gives every browser a clean, private planner the next time it visits.
+// localStorage is isolated by browser profile and site origin; nothing is shared or uploaded.
+const storageKey = 'one-day-at-a-time-v2';
 const $ = (s) => document.querySelector(s);
 const taskList = $('#task-list');
 const timeline = $('#timeline');
 let state;
 
 function todayString() { return new Date().toISOString().slice(0, 10); }
-function defaultState() { return { date: todayString(), intention: '', tasks: [{ text: '', done: false }, { text: '', done: false }, { text: '', done: false }], blocks: initialBlocks }; }
+function defaultState() {
+  return {
+    date: todayString(),
+    intention: '',
+    tasks: [{ text: '', done: false }, { text: '', done: false }, { text: '', done: false }],
+    blocks: initialBlocks.map((block) => ({ ...block }))
+  };
+}
 function load() { try { return { ...defaultState(), ...JSON.parse(localStorage.getItem(storageKey)) }; } catch { return defaultState(); } }
 function save() { localStorage.setItem(storageKey, JSON.stringify(state)); }
 function renderTasks() {
